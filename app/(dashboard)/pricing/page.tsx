@@ -4,7 +4,8 @@ import { useMemo, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DashboardHeader } from "@/components/dashboard/header"
 import { StatusBadge } from "@/components/dashboard/status-badge"
-import { pricingLanes, generatePricingHistoryData } from "@/lib/mock-data"
+import { pricingLanes } from "@/lib/mock-data"
+import { generatePricingHistoryData } from "@/lib/generatePricingHistoryData"
 import { DollarSign, TrendingUp, Gauge, BarChart3 } from "lucide-react"
 import {
   ResponsiveContainer,

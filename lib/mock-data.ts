@@ -1,5 +1,6 @@
 // ==========================================
 // Smart Shipping Management Platform
+import { generateInventoryForecastDataStatic } from "./generateInventoryForecastDataStatic"
 // Comprehensive Mock Data
 // ==========================================
 
@@ -726,21 +727,7 @@ export const inventoryItems: InventoryItem[] = [
 
 export const inventoryForecast = generateInventoryForecastDataStatic()
 
-function generateInventoryForecastDataStatic() {
-  const data: { date: string; predicted: number; actual: number | null; safety: number }[] = []
-  for (let i = 0; i < 45; i++) {
-    const dateStr = `Day ${i + 1}`
-    const base = 1200 + Math.round(Math.sin(i / 7) * 300)
-    const predicted = base + (i % 3 === 0 ? 50 : -30)
-    data.push({
-      date: dateStr,
-      predicted,
-      actual: i < 21 ? predicted + (i % 2 === 0 ? 60 : -45) : null,
-      safety: 800,
-    })
-  }
-  return data
-}
+
 
 export interface WarehouseCapacity {
   id: string
@@ -804,70 +791,7 @@ export const warehouseCapacity: WarehouseCapacity[] = [
 // ==========================================
 // TIME SERIES DATA (Charts)
 // ==========================================
-export function generateShipmentVolumeData() {
-  const data = []
-  const baseDate = new Date(2026, 0, 22)
-  for (let i = 0; i < 30; i++) {
-    const date = new Date(baseDate)
-    date.setDate(date.getDate() + i)
-    data.push({
-      date: date.toISOString().split("T")[0],
-      shipments: Math.floor(45 + Math.random() * 35),
-      delivered: Math.floor(30 + Math.random() * 25),
-      delayed: Math.floor(2 + Math.random() * 8),
-    })
-  }
-  return data
-}
 
-export function generateRiskTrendData() {
-  const data = []
-  const baseDate = new Date(2026, 0, 22)
-  for (let i = 0; i < 30; i++) {
-    const date = new Date(baseDate)
-    date.setDate(date.getDate() + i)
-    data.push({
-      date: date.toISOString().split("T")[0],
-      avgRisk: Math.floor(20 + Math.random() * 30),
-      highRiskCount: Math.floor(Math.random() * 5),
-    })
-  }
-  return data
-}
-
-export function generatePricingHistoryData() {
-  const data = []
-  const baseDate = new Date(2026, 0, 22)
-  for (let i = 0; i < 30; i++) {
-    const date = new Date(baseDate)
-    date.setDate(date.getDate() + i)
-    const baseFuel = 2.5 + Math.sin(i / 5) * 0.3
-    data.push({
-      date: date.toISOString().split("T")[0],
-      avgRate: +(2.2 + Math.sin(i / 7) * 0.5 + Math.random() * 0.2).toFixed(2),
-      fuelIndex: +baseFuel.toFixed(2),
-      demandIndex: +(0.6 + Math.sin(i / 4) * 0.25 + Math.random() * 0.1).toFixed(2),
-      capacityUtil: Math.floor(65 + Math.sin(i / 6) * 15 + Math.random() * 5),
-    })
-  }
-  return data
-}
-
-export function generateInventoryForecastData(): InventoryForecast[] {
-  const data: InventoryForecast[] = []
-  const baseDate = new Date(2026, 1, 1)
-  for (let i = 0; i < 45; i++) {
-    const date = new Date(baseDate)
-    date.setDate(date.getDate() + i)
-    const predicted = Math.floor(1200 + Math.sin(i / 7) * 300 + Math.random() * 100)
-    data.push({
-      date: date.toISOString().split("T")[0],
-      predicted,
-      actual: i < 21 ? Math.floor(predicted + (Math.random() - 0.5) * 150) : null,
-    })
-  }
-  return data
-}
 
 // ==========================================
 // KPI SUMMARY

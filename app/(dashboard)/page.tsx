@@ -17,8 +17,8 @@ import { MapComponent } from "@/components/dashboard/map-component"
 import {
   shipments,
   kpiData,
-  generateShipmentVolumeData,
 } from "@/lib/mock-data"
+import { generateShipmentVolumeData } from "@/lib/generateShipmentVolumeData"
 import {
   Area,
   AreaChart,
@@ -51,6 +51,7 @@ export default function DashboardOverview() {
           destination: s.destination,
           carrier: s.carrier,
           eta: s.eta,
+          mode: s.mode,
         })),
     []
   )

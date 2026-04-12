@@ -55,6 +55,7 @@ export default function TrackingPage() {
         destination: s.destination,
         carrier: s.carrier,
         eta: s.eta,
+        mode: s.mode,
       })),
     [filtered]
   )

@@ -3,7 +3,8 @@
 import { useState, useMemo } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DashboardHeader } from "@/components/dashboard/header"
-import { shipmentRisks, shipments, generateRiskTrendData } from "@/lib/mock-data"
+import { shipmentRisks, shipments } from "@/lib/mock-data"
+import { generateRiskTrendData } from "@/lib/generateRiskTrendData"
 import { ShieldAlert, ShieldCheck, TrendingUp, ArrowUpRight, ArrowDownRight } from "lucide-react"
 import {
   RadarChart,
